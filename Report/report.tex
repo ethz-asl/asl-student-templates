@@ -1,139 +1,102 @@
-%=================================================================
-% This template is based on IMRT Latex template by Eric A. Mueller
-%================================================================= 
+%==============================================================================
+% ETHASL - Template for student projects at the ASL
+% 2013.10: Péter Fankhauser
+% This template is based on the IMRT Latex template by Eric A. Mueller.
+%==============================================================================
 
 \documentclass[10pt,twoside,a4paper]{report}
 
- \usepackage[mt,hs,english]{styles/ethasl}   % New styles and commands
-                                      % Options:
-                                      % bt/mt: Bachelorthesis/Masterthesis
-                                      % fs/hs: Frühlingssemester/Herbstsemester
-                                      % german/english: Deutsch/English
+% ETHASL package
+% TODO Choose options according to your project
+% som/bt/st/mt: Studies on Mechatronics, Bachelor Thesis, Semester Thesis, Master Thesis
+% fs/hs: Spring term, Autumn term
+% german/english: German/English
+\usepackage[bt,hs,english]{packages/ethasl}
 
-% \includeonly{}                      % Quick formatting
-% \usepackage[draft]{graphicx}        % Quick formatting
+% Activate for german language
+%\usepackage{german}
+%\usepackage{ae}
 
- \usepackage{a4}                      % Paper size
- \usepackage[utf8]{inputenc}          % Keyboard settings
- \usepackage{amsmath}                 % Additional math functionality
- \usepackage{amssymb}                 % Additional math functionality
- \usepackage{graphicx}                % EPS figures
- \usepackage[dvips]{epsfig}           % EPS figures
- \usepackage{float}                   % Placement of floating objects
- \usepackage{fancyhdr}                % Headings
- \usepackage{rotating}
- \usepackage{multirow}
- \usepackage{url}
- \usepackage{colortbl}
- \usepackage{ifpdf}
- \usepackage{hyperref}
- \usepackage{upgreek}
- \usepackage{nicefrac}
- \usepackage{units}
- \usepackage{color}
- 
- \definecolor{black}{rgb}{0,0,0}
- \definecolor{white}{rgb}{1,1,1}
- \definecolor{darkred}{rgb}{0.5,0,0}
- \definecolor{darkgreen}{rgb}{0,0.5,0}
- \definecolor{darkblue}{rgb}{0,0,0.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{preambles/asl_preamble}
 
- \hypersetup{colorlinks
-	,linkcolor=black
-	,filecolor=black
-	,urlcolor=black
-	,citecolor=black
- }
- 
- % ISO math notation
- \usepackage{isomath}
- \renewcommand{\vec}{\vectorsym}
- \newcommand{\mat}{\matrixsym}
- 
- % Left exp and sup
- \newcommand{\leftexp}[2]{{\vphantom{#2}}^{#1}{#2}}
- \newcommand{\leftsub}[2]{{\vphantom{#2}}_{#1}{#2}}
-
- \ifpdf
-	\usepackage[update]{epstopdf}
- \else
- \fi
-
-% \usepackage{german}                  % German language
-% \usepackage{ae}                      % German specials
-
-%---------------------------------------------------------------------------
-
- \setlength{\parindent}{0em}                   % Disable parindent
- \rhead[\thepage]{\nouppercase{\rightmark}}    % Special headings
- \lhead[\nouppercase{\leftmark}]{\thepage}     % Special headings
- \cfoot{}                                      % Special headings
-
-%---------------------------------------------------------------------------
-
- \title{\LaTeX\ \!-Template für Semester- und Diplomarbeiten}
- %\subtitle{bla bla bla}
-
- \studentA{Student 1}
- \studentB{Student 2}
-% \studentC{Student 3}
-
-\supervisionA{Andreas Muster}
-%\supervisionB{Supervisor B}
-%\supervisionC{Supervisor C}
- 
-
-%===========================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-%---------------------------------------------------------------------------
-% Title page
+% TODO Add your title
+\title{\LaTeX\ \!-Template for Student Projects}
+%\subtitle{bla bla bla}
 
- \maketitle
- \pagestyle{plain}
- \pagenumbering{roman}
+% TODO Add name of the authors
+\studentA{Student 1}
+\studentB{Student 2}
+% \studentC{Student 3}
 
-%---------------------------------------------------------------------------
-% Declaration of Originality
+% TODO Add name of the supervisors
+\supervisionA{Supervisor 1}
+%\supervisionB{Supervisor B}
+%\supervisionC{Supervisor C}
 
+\maketitle
+\pagestyle{plain}
+\pagenumbering{roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Declaration of originality
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
+
 % TODO Modify placeholders in declaration.tex
 \include{chapters/declaration}
 
-%---------------------------------------------------------------------------
-% Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table on contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{2}
+\tableofcontents
+\cleardoublepage
 
- \include{chapters/preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapters standard
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{chapters/preface}
+\include{chapters/abstract}
+\include{chapters/symbols}
 
- \pagestyle{headings}                 % Default headings
- \pagestyle{fancy}                   % Special headings
- \pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapters custom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headings}
+\pagestyle{fancy}
+\pagenumbering{arabic}
 
-%---------------------------------------------------------------------------
-% Chapters
-
- \include{chapters/introduction}
- \cleardoublepage
- \include{chapters/chapter}
- \cleardoublepage
+% TODO Add your own chapters here
+\include{chapters/introduction}
+\cleardoublepage
+\include{chapters/chapter}
+\cleardoublepage
 % \include{}
 % \cleardoublepage
 % \include{}
 % \cleardoublepage
 % ...
 %
-%---------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\include{chapters/appendix}
 
- \appendix
- \include{chapters/appendix}
-%
-%---------------------------------------------------------------------------
-% Literature
-
- \include{chapters/bibliography}
-
-%---------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{ieeetr}
+\bibliography{bibliography/references}
+\addcontentsline{toc}{chapter}{Bibliography}
 
 \end{document}
-%===========================================================================

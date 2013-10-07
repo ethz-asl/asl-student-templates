@@ -1,14 +1,15 @@
-
-\chapter{Einige wichtige Hinweise zum Arbeiten mit \LaTeX\ }\label{sec:latexumg}
+\chapter{Einige wichtige Hinweise zum Arbeiten mit \LaTeX\ }
+\label{sec:latexumg}
 
 Nachfolgend wird die Codierung einiger oft verwendeten Elemente
 kurz beschrieben. Das Einbinden von Bildern ist in \LaTeX\ nicht
 ganz unproblematisch und hängt auch stark vom verwendeten Compiler
 ab. Typisches Format für Bilder in \LaTeX\ ist
-EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format b}.
+EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format}.
 
 
-\section{Gliederungen}\label{sec:gliederung}
+\section{Gliederungen}
+\label{sec:gliederung}
 
 Ein Text kann mit den Befehlen \texttt{\textbackslash
 chapter\{.\}}, \texttt{\textbackslash section\{.\}},
@@ -16,10 +17,11 @@ chapter\{.\}}, \texttt{\textbackslash section\{.\}},
 subsubsection\{.\}} gegliedert werden.
 
 
-\section{Referenzen und Verweise}\label{sec:refverw}
+\section{Referenzen und Verweise}
+\label{sec:refverw}
 
 Literaturreferenzen werden mit dem Befehl \texttt{\textbackslash
-cite\{.\}} erzeugt. Ein Beispiel: \cite{comfilt}.
+cite\{.\}} erzeugt. Beispiele: ein Buch \cite{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal Paper \cite{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, ein Konferenz Paper mit Erwähnung des Autors: \citet{Pratt1995SEA}.
 
 Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
 footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
@@ -120,7 +122,7 @@ Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
    \centering
    \includegraphics[width=0.75\textwidth]{images/k_surf.pdf}
    \caption{Ein Bild.}
-   \label{pics:k_surf}
+   \label{fig:k_surf}
 \end{figure}
 \end{verbatim}
 

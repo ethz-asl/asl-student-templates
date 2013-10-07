@@ -1,20 +1,53 @@
 %==============================================================================
-% ETHASL -- (ethasl.sty) Style file
+% ETHASL - (ethasl.sty) Style file
 % A LaTeX package providing new style definitions and commands.
-% This package is based on the ETHIMRT package by Eric A. Mueller
+% 2013.10: Péter Fankhauser
+% This package is based on the ETHIMRT package by Eric A. Mueller.
 %==============================================================================
 \def\Presentation@Version{1.1}
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{ethasl}[2008/07/01, v. \Presentation@Version]
+\ProvidesPackage{ethasl}[2013/10/07, v. \Presentation@Version]
 \typeout{providing new style definitions and commands ---}
 
-\usepackage{colortbl}
-\definecolor{grey}{rgb}{0.5,0.5,0.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%
+\usepackage{color}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newif\ifsom
 \newif\ifbt
-\DeclareOption{bt}{\global\bttrue}
-\DeclareOption{mt}{\global\btfalse}
+\newif\ifst
+\newif\ifmt
+\DeclareOption{som}{
+    \global\somtrue
+    \global\btfalse
+    \global\stfalse
+    \global\mtfalse
+}
+\DeclareOption{bt}{
+    \global\somfalse
+    \global\bttrue
+    \global\stfalse
+    \global\mtfalse
+}
+\DeclareOption{st}{
+    \global\somfalse
+    \global\btfalse
+    \global\sttrue
+    \global\mtfalse
+}
+\DeclareOption{mt}{
+    \global\mtfalse
+    \global\btfalse
+    \global\stfalse
+    \global\mttrue
+}
 
 \newif\ifhs
 \DeclareOption{hs}{\global\hstrue}
@@ -24,10 +57,8 @@
 \DeclareOption{german}{\global\ingermantrue}
 \DeclareOption{english}{\global\ingermanfalse}
 
-
-\ExecuteOptions{bt,hs,german}
+\ExecuteOptions{bt,fs,english}
 \ProcessOptions
-
 
 %%%%%%%
 \newcommand{\@subtitle}{}
@@ -82,21 +113,35 @@
 
 % line
 \hspace*{-124pt}
-\textcolor{grey}{\rule{595pt}{0.1pt}}
+\textcolor{gray}{\rule{595pt}{0.1pt}}
 
 \vspace*{1.0cm}
 % Semester-, Bachelor-, Masterarbeit
 \ifingerman
+	\ifsom
+ 		{\huge  Studies on Mechatronics}\\[3ex]
+ 	\fi
 	\ifbt
  		{\huge  Bachelorarbeit}\\[3ex]
-	\else
+ 	\fi
+	\ifst
+	 	{\huge  Semesterarbeit}\\[3ex]
+	\fi
+	\ifmt
 		{\huge  Masterarbeit}\\[3ex]
 	\fi
 \else
+	\ifsom
+ 		{\huge  Studies on Mechatronics}\\[3ex]
+ 	\fi
 	\ifbt
- 		{\huge  Bachelor-Thesis}\\[3ex]
-	\else
-		{\huge  Master-Thesis}\\[3ex]
+ 		{\huge  Bachelor Thesis}\\[3ex]
+ 	\fi
+	\ifst
+	 	{\huge  Semester Thesis}\\[3ex]
+	\fi
+	\ifmt
+		{\huge  Master Thesis}\\[3ex]
 	\fi
 \fi
 
@@ -104,7 +149,7 @@
 
 % line
 \hspace*{-124pt}
-\textcolor{grey}{\rule{595pt}{0.1pt}}
+\textcolor{gray}{\rule{595pt}{0.1pt}}
 
 \vspace*{0.3cm}
 \hspace*{-3.3cm}
@@ -167,6 +212,3 @@
 \cleardoublepage
 
 }
-
-\newcommand{\labelgleichung}[2]{\begin{equation} \label{#2} {#1} \end{equation}}
-\newcommand{\gleichung}[1]{\begin{equation} {#1} \end{equation}}
