@@ -15,7 +15,7 @@ This document is organized as follows:
 
 ## Downloads
 
-You can download the templates for the coordination report, the final report, and the final presentation from this repository directly as a ZIP-file [here](https://github.com/ethz-asl/asl-student-templates/archive/master.zip).
+**You can download the templates for the coordination report, the final report, and the final presentation from this repository directly as a ZIP-file [here](https://github.com/ethz-asl/asl-student-templates/archive/master.zip).**
 
 ## Organisation
 
