@@ -1,7 +1,7 @@
 ASL Student Templates
 =====================
 
-This repository is meant to orient the students who conduct a project (Studies on Mechatronics, Bachelor-, Semester-, and Master Theses) at the Legged Robotics Group of the Autonomous Systems Lab (ASL) at ETH Zurich. It contains general information, guidelines, template downloads and helpful links.
+This repository is meant to orient the students who conduct a project (Studies on Mechatronics, Bachelor-, Semester-, and Master Theses) at the Autonomous Systems Lab (ASL) at ETH Zurich. It contains general information, guidelines, templates  and helpful links.
 
 This page is organized as follows:
 
