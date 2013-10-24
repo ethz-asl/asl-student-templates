@@ -43,7 +43,7 @@ For the organization of your references, we recommend to use [Mendeley](http://w
 
 ## Presentations
 
-An informal _intermediate presentation_ (about 10 minutes presentation/discussion) about your work will take place around mid-term. The goal of the presentation is to give a brief summary of the work done, to propose a plan for the continuation of the project, and to discuss about the main directions of the project.
+An informal _intermediate presentation_ (about 10 minutes presentation/discussion, no intermediate presentation for Studies on Mechatronics) about your work will take place around mid-term. The goal of the presentation is to give a brief summary of the work done, to propose a plan for the continuation of the project, and to discuss about the main directions of the project.
 
 The _final presentation_ will take place at the end of the project. A test run is presented to and discussed with the supervisors 2–5 days before the public final presentation.
 
