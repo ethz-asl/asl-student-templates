@@ -70,6 +70,10 @@
 % Indent
 \setlength{\parindent}{0em}
 
+% Include PDF pages
+\usepackage{pdfpages}
+\includepdfset{pages={-}, frame=true, pagecommand={\thispagestyle{fancy}}}
+
 % Headings
 \rhead[\thepage]{\nouppercase{\rightmark}}
 \lhead[\nouppercase{\leftmark}]{\thepage}
