@@ -64,6 +64,9 @@
 \newcommand{\@subtitle}{}
 \newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
 
+\newcommand{\@projectYear}{}
+\newcommand{\projectYear}[1]{\gdef\@projectYear{#1}}
+
 \newcommand{\@supervisionA}{}
 \newcommand{\supervisionA}[1]{\gdef\@supervisionA{#1}}
 
@@ -193,15 +196,15 @@
 
 \ifingerman
 	\ifhs
- 		{\Large \bf Herbstsemester \the\year}\\[3ex]
+ 		{\Large \bf Herbstsemester \@projectYear}\\[3ex]
 	\else
- 		{\Large \bf Fruehlingssemester \the\year}\\[3ex]
+ 		{\Large \bf Fruehlingssemester \@projectYear}\\[3ex]
 	\fi
 \else
 	\ifhs
- 		{\Large \bf Autumn Term \the\year}\\[3ex]
+ 		{\Large \bf Autumn Term \@projectYear}\\[3ex]
 	\else
- 		{\Large \bf Spring Term \the\year}\\[3ex]
+ 		{\Large \bf Spring Term \@projectYear}\\[3ex]
 	\fi
 \fi
 
