@@ -70,7 +70,7 @@ We recommend to use the LaTeX template as it is provided in this repository in `
 
 ## Plagiarism
 
-Every student has to make himself/herself familiar with the [ETH Zurich rules regarding plagiarism](http://www.ethz.ch/faculty/exams/plagiarism/index_EN).
+Every student has to make himself/herself familiar with the [ETH Zurich rules regarding plagiarism](https://www.ethz.ch/students/en/studies/performance-assessments/plagiarism.html).
 
 ## Evaluation
 
