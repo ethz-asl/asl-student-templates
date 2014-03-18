@@ -1,0 +1,11 @@
+- git: {local-name: ../catkin_ws/src/mav_comm, uri: 'git@github.com:ethz-asl/mav_comm.git'}
+- git: {local-name: ../catkin_ws/src/msf, uri: 'git@github.com:ethz-asl/sensor_fusion.git'}
+- git: {local-name: ../catkin_ws/src/mav_planning_gui, uri: 'git@github.com:ethz-asl/mav_planning_gui.git'}
+- git: {local-name: ../catkin_ws/src/mav_gui, uri: 'git@github.com:ethz-asl/mav_gui.git'}
+- git: {local-name: ../catkin_ws/src/mav_tools, uri: 'git@github.com:ethz-asl/mav_tools.git'}
+- git: {local-name: ../catkin_ws/src/ethzasl_mav_control, uri: 'git@github.com:ethz-asl/ethzasl_mav_control.git'}
+- git: {local-name: ../catkin_ws/src/asctec_mav_framework_devel, uri: 'git@github.com:ethz-asl/asctec_mav_framework_devel.git'}
+- git: {local-name: ../catkin_ws/src/vicon_bridge, uri: 'git@github.com:ethz-asl/vicon_bridge.git'}
+- git: {local-name: ../catkin_ws/src/mav_visualization, uri: 'git@github.com:ethz-asl/mav_visualization.git'}
+- git: {local-name: ../catkin_ws/src/ethzasl_mav_pathplanning, uri: 'git@github.com:ethz-asl/ethzasl_mav_pathplanning.git'}
+- git: {local-name: ../catkin_ws/src/nlopt, uri: 'git@github.com:ethz-asl/nlopt.git'}
