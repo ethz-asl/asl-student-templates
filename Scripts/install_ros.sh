@@ -109,6 +109,7 @@ echo ""
 
 git config --global credential.helper cache
 git config --global push.default current
+git config --global color.ui true
 
 git config --list
 
