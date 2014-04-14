@@ -6,6 +6,8 @@ sudo apt-get install python-rosinstall ipython libeigen3-dev libboost-all-dev do
 
 sudo apt-get install ros-hydro-octomap ros-hydro-octomap-ros ros-hydro-octomap-rviz-plugins ros-hydro-octomap-msgs ros-hydro-octovis -y
 
+sudo apt-get install libgflags-dev libgoogle-glog-dev -y
+
 sudo add-apt-repository ppa:jmaye/ethz 
 sudo apt-get update
 
