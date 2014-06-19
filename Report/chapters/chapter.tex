@@ -21,16 +21,17 @@ subsubsection\{.\}} gegliedert werden.
 \label{sec:refverw}
 
 Literaturreferenzen werden mit dem Befehl \texttt{\textbackslash
-cite\{.\}} erzeugt. Beispiele: ein Buch \cite{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal Paper \cite{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, ein Konferenz Paper \cite{Pratt1995SEA}.
+citep\{.\}} und \texttt{\textbackslash
+citet\{.\}} erzeugt. Beispiele: ein Buch \citep{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal Paper \citep{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, ein Konferenz Paper mit Erwähnung des Autors: \citet{Pratt1995SEA}.
 
 Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
 footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
 bla.}.
 
 Querverweise im Text werden mit \texttt{\textbackslash label\{.\}}
-verankert und mit \texttt{\textbackslash ref\{.\}} erzeugt.
+verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt.
 Beispiel einer Referenz auf das zweite Kapitel:
-Kapitel~\ref{sec:latexumg}.
+\cref{sec:latexumg}.
 
 
 \section{Aufzählungen}\label{sec:aufz}
