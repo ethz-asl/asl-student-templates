@@ -14,8 +14,9 @@ deps=$(wildcard */*.tex) $(wildcard images/*.png) $(wildcard images/*.jpg) \
 	cd build && BIBINPUTS=../:${BIBINPUTS} BSTINPUTS=../:${BSTINPUTS} bibtex $*
 	cd build && TEXINPUTS=../:../packages:${TEXINPUTS} pdflatex $<
 	cd build && TEXINPUTS=../:../packages:${TEXINPUTS} pdflatex $<
-	# move the resulting pdf back to the main directory
-	mv build/$@ .
+	# copy the resulting pdf back to the main directory (mv is no good, because
+	# make will rebuild even if nothing has changed)
+	cp build/$@ .
 
 all: $(targets)
 
