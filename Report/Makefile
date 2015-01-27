@@ -11,7 +11,7 @@ deps=$(wildcard */*.tex) $(wildcard images/*.png) $(wildcard images/*.jpg) \
 %.pdf: %.tex $(deps) Makefile build
 	# cd to build and build the report
 	cd build && TEXINPUTS=../:../packages:${TEXINPUTS} pdflatex $<
-	cd build && BIBINPUTS=..:${BIBINPUTS} bibtex $*
+	cd build && BIBINPUTS=../:${BIBINPUTS} BSTINPUTS=../:${BSTINPUTS} bibtex $*
 	cd build && TEXINPUTS=../:../packages:${TEXINPUTS} pdflatex $<
 	cd build && TEXINPUTS=../:../packages:${TEXINPUTS} pdflatex $<
 	# move the resulting pdf back to the main directory
