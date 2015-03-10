@@ -30,3 +30,6 @@
 *.vrb
 *.xdy
 *.tdo
+*.swp
+Report/build
+Report/report.pdf
