@@ -1,0 +1,82 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum, lmodern}
+\usepackage[scaled=.95]{helvet}% helvetica as the origin of arial
+\usepackage[helvet]{sfmath}    % for the mathematical enviroments
+\renewcommand{\familydefault}{\sfdefault}
+
+%% ETH beamer theme
+% Options: [default]
+%   itemsblack/[itemsblue]: change color of bullets etc. to black/blue in itemize style environments
+%   [titlesblack]/titlesblue: change color of frame titles/subtitles to black/blue
+\usetheme[itemsblack,titlesblack]{eth}
+
+%% Theme uses ETH blue color by default. Can be changed to any color using this command: 
+% \setbeamercolor{structure}{fg=blue}
+
+%% Mandatory variables
+\author{Author Name}
+\title{Presentation}
+\date{\today}
+
+%% Optional variables
+% \supervisor{Jane Smith} % for one supervisor
+\supervisors{Carol Foote, Jane Smith} % for multiple supervisors
+\projecttype{Master's Thesis}
+
+\begin{document}
+\frame{\maketitle}
+\begin{frame}{Table of contents}{Subtitle}
+	\tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{One subsection}
+\begin{frame}{Itemize}
+\begin{itemize}
+\item Here you can see an itemization
+\begin{itemize}
+\item It has items
+\begin{itemize}
+\item The items are below each other
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Enumerate}
+\begin{enumerate}
+\item Here you can see an enumeration
+\item It has items
+\item The items are numbered
+\end{enumerate}
+\[
+	f(x)=\sum_{i=0}^\infty \frac{f^{(i)}(x_0)}{i!}(x-x_0)^i
+\]
+\end{frame}
+
+\subsection{New Subsection}
+\begin{frame}{Theorems and environments}
+\begin{theorem}[Sample theorem]
+This presentation is essentially useless.
+\end{theorem}
+\begin{proof}
+This proof is essentially incorrect.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Example slide with Title}
+\begin{example}
+Major problem.
+\end{example}
+\begin{solution}
+Minor nuisance.
+\end{solution}
+\end{frame}
+
+\begin{frame}[plain]{Plain frame with title}
+\lipsum[1]
+\end{frame}
+\end{document}
+
