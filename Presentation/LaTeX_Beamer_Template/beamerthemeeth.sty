@@ -1,0 +1,104 @@
+% ETH ASL Beamer theme
+% Written by Katie Jones
+% 2016/08/01
+
+\ProvidesPackage{beamerthemeeth}[2016/08/01]
+
+\RequirePackage{tikz}
+\RequirePackage{iftex}
+\RequirePackage[export]{adjustbox}
+\usetikzlibrary{calc}
+
+\AtBeginDocument{\setbeamertemplate{logo}{}}
+
+\def\itemcolor{itemsblue}
+\DeclareOption{itemsblack}{\def\itemcolor{itemsblack}}
+\DeclareOption{itemsblue}{\def\itemcolor{itemsblue}}
+\def\titlecolor{titlesblack}
+\DeclareOption{titlesblack}{\def\titlecolor{titlesblack}}
+\DeclareOption{titlesblue}{\def\titlecolor{titlesblue}}
+\ProcessOptions
+
+\usecolortheme[\itemcolor,\titlecolor]{eth}
+\usefonttheme{eth}
+
+\newcommand{\@supervisor}{}
+\newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{Supervisor: #1}}
+\newcommand{\supervisors}[1]{\renewcommand{\@supervisor}{Supervisors: #1}}
+
+\newcommand{\@projecttype}{}
+\newcommand{\projecttype}[1]{\renewcommand{\@projecttype}{#1}}
+
+% Sizes
+\setbeamersize{text margin left=0.05\paperwidth, text margin right=0.05\paperwidth}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=white]
+
+\setbeamertemplate{footline}{
+  \hspace{0.02\paperwidth}
+  \includegraphics[height=2em,valign=b]{asl_logo_right.pdf}
+  \hfill \parbox{0.5\textwidth}{\hfill\insertauthor~~|~~\@date~~|~~\insertframenumber \hspace{0.02\paperwidth}
+  \vspace{0.01\paperwidth}}
+}
+
+
+\setbeamertemplate{title page}{
+  \usebeamercolor{title page}
+  \begin{tikzpicture}[overlay,remember picture]
+    \coordinate (content-bl) at ($(topleft) - 0.90*(0,\the\paperheight)$);
+    {
+      \usebeamercolor[bg]{title page}
+      \fill (bottominsideleft |- bottomleft) rectangle (bottominsideright |- content-bl);
+    }
+  \end{tikzpicture}
+  \begin{tikzpicture}[remember picture]
+    \useasboundingbox (0,0) rectangle ++($0.92*(\the\paperwidth,0) - 0.25*(0,\the\paperheight)$);
+    \node[inner sep=0pt,below] (titlepic) at ($0.5*(bottomleft) + 0.5*(bottomright)$) {\includegraphics[width=0.92\paperwidth,trim={0mm 45mm 0mm 36mm},clip]{title.jpg}};
+    \useasboundingbox (titlepic.north west) rectangle (titlepic.south east);
+  \end{tikzpicture}
+  %% Title
+  \newlength{\oldparskip}
+  \setlength{\oldparskip}{\parskip}
+  \setlength{\parskip}{1.5em}
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  {%% Subtitle
+    \ifx\insertsubtitle\@empty%
+    \else%
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \fi%  
+  }   
+  %% Author
+  {\usebeamercolor{author}\usebeamerfont{author}\insertauthor}\par
+  %% Type of project
+  \vfill
+  \ifx\@projecttype\@empty\else
+  {\usebeamercolor{institute}\usebeamerfont{institute}\@projecttype}\\
+  \fi
+  {\usebeamercolor{institute}\usebeamerfont{institute}\@supervisor}
+  %% Date
+  % {\usebeamercolor{date}\usebeamerfont{date} \insertdate}
+  \setlength{\parskip}{\oldparskip}
+}
+
+\setbeamertemplate{headline}{
+  \centering
+  \begin{tikzpicture}[remember picture]
+    \useasboundingbox (0,\the\paperheight) rectangle ++($(\the\paperwidth,0) - 0.1*(0,\the\paperwidth)$);
+    \coordinate (topleft) at ($(0,\the\paperheight) + 0.02*(\the\paperwidth,-\the\paperwidth)$);
+    \coordinate (bottomright) at ($(\the\paperwidth,\the\paperheight)-0.02*(\the\paperwidth,\the\paperwidth) - 0.05*(0,\the\paperwidth)$);
+    \coordinate (bottomleft) at (topleft |- bottomright); 
+    {\usebeamercolor[bg]{title page}
+    \fill (topleft) rectangle (bottomright);
+    \fill (bottomleft) rectangle ++($0.02*(\the\paperwidth,-\the\paperwidth)$) coordinate (bottominsideleft);
+    \fill (bottomright) rectangle ++($0.02*(-\the\paperwidth,-\the\paperwidth)$) coordinate (bottominsideright);
+  }
+  \node at ($0.5*(topleft) + 0.5*(bottomleft) + 0.08*(\the\paperwidth,0)$) {\includegraphics[height=0.018\paperwidth]{eth_logo_kurz_neg_13.pdf}};
+\end{tikzpicture}
+}
+
+\setbeamertemplate{frametitle}{
+  {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
+  {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+}

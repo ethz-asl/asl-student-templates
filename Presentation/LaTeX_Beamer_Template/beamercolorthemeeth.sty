@@ -1,0 +1,45 @@
+% ETH ASL Beamer color theme
+% Written by Katie Jones
+% 2016/08/01
+
+\ProvidesPackage{beamercolorthemeeth}[2016/08/01]
+
+\newif\if@itemsblack
+\@itemsblackfalse
+\DeclareOption{itemsblack}{\@itemsblacktrue}
+\DeclareOption{itemsblue}{\@itemsblackfalse}
+
+\newif\if@titlesblack
+\@titlesblacktrue
+\DeclareOption{titlesblack}{\@titlesblacktrue}
+\DeclareOption{titlesblue}{\@titlesblackfalse}
+\ProcessOptions
+
+\definecolor{ETHblue}{RGB}{31,64,122}      % ETH1
+\definecolor{ETHgreen}{RGB}{72,90,44}       % ETH2
+\definecolor{ETHlightblue}{RGB}{18,105,176}     % ETH3
+\definecolor{ETHdarkgreen}{RGB}{114,121,28}     % ETH4
+\definecolor{ETHpurple}{RGB}{145,5,106}      % ETH5
+\definecolor{ETHgray}{RGB}{111,111,100}    % ETH6
+\definecolor{ETHred}{RGB}{168,50,45}      % ETH7
+\definecolor{ETHlightishblue}{RGB}{0,122,150}      % ETH8
+\definecolor{ETHorange}{RGB}{149,96,19}      % ETH9
+
+\usecolortheme[named=ETHlightblue]{structure}
+
+\setbeamercolor{normal text}{fg=black, bg=}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{title page}{fg=white,bg=structure}
+
+
+
+\if@itemsblack
+\setbeamercolor{item}{parent={normal text}}
+\fi
+
+\if@titlesblack
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{framesubtitle}{fg=gray}
+\else
+\setbeamercolor{framesubtitle}{fg=ETHlightblue!70!white}
+\fi
