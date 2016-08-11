@@ -26,8 +26,8 @@
 \newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{Supervisor: #1}}
 \newcommand{\supervisors}[1]{\renewcommand{\@supervisor}{Supervisors: #1}}
 
-\newcommand{\@projecttype}{}
-\newcommand{\projecttype}[1]{\renewcommand{\@projecttype}{#1}}
+\def\@projecttype{}
+\def\projecttype#1{\def\@projecttype{#1}}
 
 % Sizes
 \setbeamersize{text margin left=0.05\paperwidth, text margin right=0.05\paperwidth}
