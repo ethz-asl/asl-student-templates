@@ -6,6 +6,8 @@
 
 \documentclass[10pt,twoside,a4paper]{report}
 
+\usepackage{pdfpages}
+
 % ETHASL package
 % TODO Choose options according to your project
 % som/bt/st/mt: Studies on Mechatronics, Bachelor Thesis, Semester Thesis, Master Thesis
@@ -53,9 +55,10 @@
 % Declaration of originality
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
-
 % TODO Modify placeholders in declaration.tex
-\input{chapters/declaration}
+%\input{chapters/declaration}
+\includepdf[pagecommand={}]{chapters/declaration-originality.pdf}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table on contents
