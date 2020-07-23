@@ -7,6 +7,12 @@ ganz unproblematisch und hängt auch stark vom verwendeten Compiler
 ab. Typisches Format für Bilder in \LaTeX\ ist
 EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format}.
 
+\section{Basics}
+\label{sec:basics}
+Text kann durch die Befehle \texttt{\textbackslash textit} (\textit{italic}), \texttt{\textbackslash texttt}  (\texttt{typewriter}) und \texttt{\textbackslash textbf} (\textbf{bold}) formatiert werden. Zeilenumbrüche im Text werden auch im PDF übernommen. Um eine leere Zeile einzufügen muss ein Zeilenumbruch (\textbackslash \textbackslash) hinzugefügt werden.\\
+
+Um Position weiter zu beeinflussen können die Befehle für \texttt{\textbackslash vspace[Distanz]} und \texttt{\textbackslash hspace[Distanz]} benutzt werden.
+Es können auch Kommentare im Code eingefügt werden mit \texttt{\%}.
 
 \section{Gliederungen}
 \label{sec:gliederung}
@@ -14,7 +20,7 @@ EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format
 Ein Text kann mit den Befehlen \texttt{\textbackslash
 chapter\{.\}}, \texttt{\textbackslash section\{.\}},
 \texttt{\textbackslash subsection\{.\}} und \texttt{\textbackslash
-subsubsection\{.\}} gegliedert werden.
+subsubsection\{.\}} gegliedert werden. Weiterhin kann das ganze Dokument in verschiedene Dateien gegliedert werden, welche durch den Befehl \texttt{\textbackslash input\{.\}} eingefügt werden können.
 
 
 \section{Referenzen und Verweise}
@@ -27,6 +33,8 @@ citet\{.\}} erzeugt. Beispiele: ein Buch \citep{Raibert1986LeggedRobotsThatBalan
 Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
 footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
 bla.}.
+
+Bibliografieeinträge können einfach falls vorhanden von den jeweiligen Seiten eingefügt werden, mit dem Program Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine beiinhaltet, generiert werden oder von Hand selber hinzugefügt werden. Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit einem trennenden \texttt{and} hinzugefügt werden müssen. 
 
 Querverweise im Text werden mit \texttt{\textbackslash label\{.\}}
 verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt.
@@ -78,8 +86,8 @@ wurde erzeugt mit:
 
 \section{Erstellen einer Tabelle}\label{sec:tabellen}
 
-Ein Beispiel einer Tabelle:
-\begin{table}[h]
+Ein Beispiel einer Tabelle (siehe \Cref{tab:tabnefz}).
+\begin{table}[ht]
 \begin{center}
  \caption{Daten der Fahrzyklen ECE, EUDC, NEFZ.}\vspace{1ex}
  \label{tab:tabnefz}
@@ -97,7 +105,7 @@ Ein Beispiel einer Tabelle:
 
 Die Tabelle wurde erzeugt mit:
 \begin{verbatim}
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
  \caption{Daten der Fahrzyklen ECE, EUDC, NEFZ.}\vspace{1ex}
  \label{tab:tabnefz}
@@ -119,7 +127,7 @@ Die Tabelle wurde erzeugt mit:
 
 Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
 \begin{verbatim}
-\begin{figure}
+\begin{figure}[hbp]
    \centering
    \includegraphics[width=0.75\textwidth]{images/k_surf.pdf}
    \caption{Ein Bild.}
@@ -127,39 +135,84 @@ Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
 \end{figure}
 \end{verbatim}
 
-\begin{figure}
+\begin{figure}[hbp]
    \centering
    \includegraphics[width=0.75\textwidth]{images/k_surf.pdf}
    \caption{Ein Bild}
    \label{pics:k_surf}
 \end{figure}
 
-oder bei zwei Bildern nebeneinander mit:
+Das $\lbrack hbp \rbrack$ macht, dass das Bild entweder an dieser Stelle im Layout eingebettet wird, wenn das nicht geht am Ende der Seite und wenn dies auch nicht geht, am Ende der nächsten Seite. Referenzieren der Bilder geht am besten mit \texttt{\textbackslash Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} (\cref{pics:cycle:1}).\\
+
+Zwei Bilder nebeneinander einfügen mit:
+
 \begin{verbatim}
-\begin{figure}
-  \begin{minipage}[t]{0.48\textwidth}
+\begin{figure}[hbp]
+  \begin{subfigure}[t]{0.48\textwidth}
     \includegraphics[width = \textwidth]{images/cycle_we.pdf}
-  \end{minipage}
+    \caption{Bild 1}
+    \label{pics:cycle:1}
+  \end{subfigure}
   \hfill
-  \begin{minipage}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.48\textwidth}
     \includegraphics[width = \textwidth]{images/cycle_ml.pdf}
-  \end{minipage}
-  \caption{Zwei Bilder nebeneinander.}
+    \caption{Bild 2}
+    \label{pics:cycle:2}
+  \end{subfigure}
+  \caption{Zwei Bilder nebeneinander}
   \label{pics:cycle}
 \end{figure}
 \end{verbatim}
 
-\begin{figure}
-  \begin{minipage}[t]{0.48\textwidth}
+\begin{figure}[hbp]
+  \begin{subfigure}[t]{0.48\textwidth}
     \includegraphics[width = \textwidth]{images/cycle_we.pdf}
-  \end{minipage}
+    \caption{Bild 1}
+    \label{pics:cycle:1}
+  \end{subfigure}
   \hfill
-  \begin{minipage}[t]{0.48\textwidth}
+  \begin{subfigure}[t]{0.48\textwidth}
     \includegraphics[width = \textwidth]{images/cycle_ml.pdf}
-  \end{minipage}
+    \caption{Bild 2}
+    \label{pics:cycle:2}
+  \end{subfigure}
   \caption{Zwei Bilder nebeneinander}
   \label{pics:cycle}
 \end{figure}
+
+Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). Viele weitere Möglichkeiten findest du in der Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
+
+\begin{figure}[hbp]
+\begin{center}
+\begin{tikzpicture}[auto, node distance=3cm]
+    \tikzstyle{block} = [draw, fill=white, rectangle, 
+    minimum height=3em, minimum width=6em]
+    \tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
+    \tikzstyle{input} = [coordinate]
+    \tikzstyle{output} = [coordinate]
+    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+    \node [input, name=input]{};
+    \node[sum, right of=input, node distance=2cm](sum){};
+    \node [block, right of=sum](controller){PID controller};
+    \node [block, right of=controller, node distance=4cm](system){Actuator};
+    \draw [->] (controller) -- node[name=u]{PWM}(system);
+    \node [output, right of=system, node distance=3cm](output) {};
+    \node [block, below of=u](measurements){Sensor};
+    \draw [draw,->] (input) -- node [align=center]{reference}(sum);
+    \draw [->] (sum) -- node {error}(controller);
+    \draw [->] (system) -- node [name=y]{length}(output);
+    \draw [->] (y) |- (measurements);
+    \draw [->] (measurements) -| node[pos=0.99] {$-$} 
+        node [near end, align=center]{measured}(sum);
+\end{tikzpicture}
+\caption{Ein Beispiel von Tikz} \label{fig:loop}
+
+\end{center}
+\end{figure}
+
+
+
+
 
 
 \section{Mathematische Formeln}\label{sec:math}
@@ -168,7 +221,7 @@ Einfache mathematische Formeln werden mit der equation-Umgebung
 erzeugt:
 \begin{equation}
  p_{me0f}(T_e,\omega_e) \ = \ k_1(T_e) \cdot (k_2+k_3 S^2
- \omega_e^2) \cdot \Pi_{\mathrm{max}} \cdot \sqrt{\frac{k_4}{B}} \, .
+ \omega_e^2) \cdot \Pi_{\mathrm{max}} \cdot \sqrt{\frac{k_4}{B}} \quad [\text{bar}] .
  	\label{eq:my_equation}
 \end{equation}
 
@@ -176,14 +229,36 @@ Der Code dazu lautet:
 \begin{verbatim}
 \begin{equation}
  p_{me0f}(T_e,\omega_e) \ = \ k_1(T_e) \cdot (k_2+k_3 S^2
- \omega_e^2) \cdot \Pi_{max} \cdot \sqrt{\frac{k_4}{B}} \, .
+ \omega_e^2) \cdot \Pi_{max} \cdot \sqrt{\frac{k_4}{B}} \quad [\text{bar}] .
 \end{equation}
 \end{verbatim}
 
 Mathematische Ausdrücke im Text werden mit \$formel\$ erzeugt (z.B.:
 $a^2+b^2=c^2$).
 
-Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} und \texttt{\textbackslash mat\{.\}} erzeugt (z.B. $\vec{v}$, $\mat{M}$).
+Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} und \texttt{\textbackslash mat\{.\}} erzeugt (z.B. $\vec{v}$, $\mat{M}$). Matrizen kann man aber auch explizit in Formeln verwenden. Bsp:
+
+\begin{equation}
+    \begin{bmatrix}
+    1 & 2 \\
+    3 & 4 
+    \end{bmatrix}
+    \begin{bmatrix}
+    1 \\
+    1
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+    3 \\
+    7
+    \end{bmatrix}
+    \vspace{0.5cm}
+\end{equation}
+
+Um Text, oder unformatierte Zeichen in Gleichungen eizufügen braucht man eine Textumgebung \texttt{\textbackslash text\{.\}}.
+
+Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} und grössere mit
+\texttt{\textbackslash quad} oder \texttt{\textbackslash qquad}.
 
 
 \section{Weitere nützliche Befehle}\label{sec:div}
@@ -191,4 +266,10 @@ Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} u
 Hervorhebungen im Text sehen so aus: \emph{hervorgehoben}. Erzeugt
 werden sie mit dem \texttt{\textbackslash epmh\{.\}} Befehl.
 
-Einheiten werden mit den Befehlen \texttt{\textbackslash unit[1]\{m\}} (z.B.~\unit[1]{m}) und \texttt{\textbackslash unitfrac[1]\{m\}\{s\}} (z.B.~\unitfrac[1]{m}{s}) gesetzt.
+Einheiten werden mit den Befehlen \texttt{\textbackslash unit[1]\{m\}} (z.B.~\unit[1]{m}) und \texttt{\textbackslash unitfrac[1]\{m\}\{s\}} (z.B.~\unitfrac[1]{m}{s}) gesetzt. Alternativ kann auch bei einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: \texttt{1 \textbackslash , m} (1\,m).
+
+\subsection{Tiefe der Gliederung}
+Dies ist ein Abschnitt auf der dritten Hierarchistufe.
+
+\subsubsection{Zwischentitel}
+Dies ist ein Abschnitt auf der vierten Hierarchistufe. Diese ist unnummeriert und geht nicht ins Inhaltsverzeichnis ein.
