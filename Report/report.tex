@@ -1,117 +1,120 @@
 %==============================================================================
 % ETHASL - Template for student projects at the ASL
+% based on IMRT Latex template: Eric A. Mueller
 % 2013.10: Péter Fankhauser
-% This template is based on the IMRT Latex template by Eric A. Mueller.
+% 2019.11: Christian Schorno
+% 2020.07: Pascal Auf der Maur
 %==============================================================================
 
-\documentclass[10pt,twoside,a4paper]{report}
+\documentclass[10pt,twoside,a4paper]{book}
 
-\usepackage{pdfpages}
 
+%==============================================================================
 % ETHASL package
-% TODO Choose options according to your project
-% som/bt/st/mt: Studies on Mechatronics, Bachelor Thesis, Semester Thesis, Master Thesis
+%==============================================================================
+% TODO: Choose options according to your project
+% som/bt/st/mt/fp: Studies on Mechatronics, Bachelor Thesis, Semester Thesis, Master Thesis, focus project
 % fs/hs: Spring term, Autumn term
-% german/english: German/English
-\usepackage[bt,hs,english]{packages/ethasl}
+% german/english
+%==============================================================================
+\usepackage[bt,fs,english]{packages/ethasl}
 
-% Activate for german language
-%\usepackage{german}
-%\usepackage{ae}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX preamble
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{preambles/asl_preamble}
+\input{preambles/asl_preamble.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% document container
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frontmatter
+\pagestyle{empty}
+\pagenumbering{roman}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
+% TODO: Add name of your institute
+\institutelogo{images/asl_logo.pdf}
+\institute{Autonomous Systems Lab}
+\headofinstitute{Prof. Roland Siegwart}
 
-% TODO Add your title
+% TODO: Add your title and (optional) subtitle
 \title{\LaTeX\ \!-Template for Student Projects}
-%\subtitle{bla bla bla}
+%subtitle{Subtitle}
 
-% TODO Add name of the authors
+% TODO: Add name of the authors
 \studentA{Student 1}
 \studentB{Student 2}
-% \studentC{Student 3}
+\studentC{Student 3}
+%\studentD{Student 4}
+%\studentE{Student 5}
+%\studentF{Student 6}
+%\studentG{Student 7}
 
-% TODO Add name of the supervisors
-\supervisionA{Supervisor 1}
-%\supervisionB{Supervisor B}
+% TODO: Add name of the supervisors
+\supervisionA{Supervisor A}
+\supervisionB{Supervisor B}
 %\supervisionC{Supervisor C}
 
-% TODO Change if necessary
+% TODO: date: choose between this and last year
 \projectYear{\the\year} % This year
 %\projectYear{\advance\year by -1 \the\year\advance\year by 1} % Last year
 
+% TODO: titleimage: Add an optional title image. With the number in the brackets you can adjust the size of the image (num*textwidth). 
+\titleimage[1]{images/k_surf.pdf}
+
 \maketitle
-\pagestyle{plain}
-\pagenumbering{roman}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Declaration of originality
+% Frontmatter elements
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{empty}
-% TODO Modify placeholders in declaration.tex
-%\input{chapters/declaration}
-\includepdf[pagecommand={}]{chapters/declaration-originality.pdf}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Table on contents
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Table of Contents depth (TODO change if necessary)
-\setcounter{tocdepth}{2}
-
-\tableofcontents
-\cleardoublepage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapters standard
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{chapters/preface}
-\cleardoublepage
+\pagestyle{headings}
 \input{chapters/abstract}
-\cleardoublepage
+\input{chapters/preface}
 \input{chapters/symbols}
-\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents: depth (TODO change if necessary)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{tocdepth}{2}
+\tableofcontents
+\thispagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chapters custom
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
 \pagestyle{fancy}
 \pagenumbering{arabic}
 
 % TODO Add your own chapters here
 \input{chapters/introduction}
-\cleardoublepage
 \input{chapters/chapter}
-\cleardoublepage
 % \input{}
-% \cleardoublepage
 % \input{}
-% \cleardoublepage
-% ...
-%
+% \input{}
+% \input{}
+% \input{}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{bibliography/IEEEtranN}
+
 \bibliography{bibliography/references}
 \addcontentsline{toc}{chapter}{Bibliography}
-\cleardoublepage
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \appendix
 \input{chapters/appendix_text}
-\cleardoublepage
 \input{chapters/appendix_datasheets}
 
 \end{document}

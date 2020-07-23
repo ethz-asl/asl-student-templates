@@ -1,12 +1,27 @@
-% Encoding settings
-\usepackage[utf8]{inputenc}
-\usepackage[OT1]{fontenc}
+% latin modern font
+% see: https://www.namsu.de/Extra/pakete/Lmodern.html
+\usepackage{lmodern}
 
-% Paper size
+% Language: latex comes with english character encoding of 255 characters
+% diacritical characters of western european languages need special packages
+% three encoding settings for german (not necessary if english)
+%\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 \usepackage{a4}
+
 
 % Headings
 \usepackage{fancyhdr}
+\fancyhf{} % to clear existing header/footer
+\lhead[\thepage]{\nouppercase{\rightmark}}
+\rhead[\nouppercase{\leftmark}]{\thepage}
+%\cfoot{}
+\fancypagestyle{plain}{% 
+     \fancyhf{} % clear all header and footer fields 
+     \renewcommand{\headrulewidth}{0pt} % remove line between header and main text
+}
 
 % More symbols
 \usepackage{textcomp}\usepackage{gensymb}
@@ -23,8 +38,9 @@
 % Figures
 \usepackage{graphicx}
 
-% Subfigures (obsolete)
-\usepackage{subfigure}
+% Subfigures
+\usepackage{caption}
+\usepackage{subcaption}
 
 % Bibliography
 \usepackage[numbers]{natbib}
@@ -38,6 +54,7 @@
 \usepackage{color}
 \usepackage{colortbl}
 \definecolor{black}{rgb}{0,0,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{white}{rgb}{1,1,1}
 \definecolor{darkred}{rgb}{0.5,0,0}
 \definecolor{darkgreen}{rgb}{0,0.5,0}
@@ -71,11 +88,6 @@
 \usepackage{pdfpages}
 \includepdfset{pages={-}, frame=true, pagecommand={\thispagestyle{fancy}}}
 
-% Headings
-\rhead[\thepage]{\nouppercase{\rightmark}}
-\lhead[\nouppercase{\leftmark}]{\thepage}
-\cfoot{}
-
 % Gantt chart
 \usepackage{pgfgantt}
 
@@ -84,3 +96,8 @@
 
 % Clever references (has to be loaded after hyperref)
 \usepackage{cleveref}
+
+% Vectorgraphics
+\usepackage{tikz}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usepackage[siunitx]{circuitikz}
