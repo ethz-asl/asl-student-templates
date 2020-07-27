@@ -95,6 +95,9 @@
 \newcommand{\@supervisionD}{}
 \newcommand{\supervisionD}[1]{\gdef\@supervisionD{#1}\supervisionDtrue}
 
+\newlength{\spaceforauthors}
+\setlength{\spaceforauthors}{22cm}
+
 \newcommand{\@studentA}{}
 \newcommand{\studentA}[1]{\gdef\@studentA{#1}}
 
@@ -112,19 +115,31 @@
 
 \newif\ifstudentE
 \newcommand{\@studentE}{}
-\newcommand{\studentE}[1]{\gdef\@studentE{#1}\studentEtrue}
+\newcommand{\studentE}[1]{
+    \gdef\@studentE{#1}\studentEtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
 
 \newif\ifstudentF
 \newcommand{\@studentF}{}
-\newcommand{\studentF}[1]{\gdef\@studentF{#1}\studentFtrue}
+\newcommand{\studentF}[1]{
+    \gdef\@studentF{#1}\studentFtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
 
 \newif\ifstudentG
 \newcommand{\@studentG}{}
-\newcommand{\studentG}[1]{\gdef\@studentG{#1}\studentGtrue}
+\newcommand{\studentG}[1]{
+    \gdef\@studentG{#1}\studentGtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
 
 \newif\ifstudentH
 \newcommand{\@studentH}{}
-\newcommand{\studentH}[1]{\gdef\@studentH{#1}\studentHtrue}
+\newcommand{\studentH}[1]{
+    \gdef\@studentH{#1}\studentHtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
 
 \newif\iftitleimage
 \newcommand{\@titleimage}{}
@@ -199,7 +214,9 @@
 \fi
 
 % the more authors/supervisors the smaller the vspace (18cm–20cm)
-\vspace{22cm}
+% Should be automatically adjusted otherwise you can make some adjustments here:
+% \addtolength{\spaceforauthors}{1cm}
+\vspace{\spaceforauthors}
 
 % line
 \hspace*{-124pt}
@@ -266,7 +283,7 @@
 \fi
 
 \iftitleimage
-\vspace{1cm}
+\vspace{0.5cm}
     \centering
     \includegraphics[width=\titleimagesize]{\@titleimage}
 \fi
