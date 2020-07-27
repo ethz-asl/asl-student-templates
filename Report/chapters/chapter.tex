@@ -34,10 +34,10 @@ Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
 footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
 bla.}.
 
-Bibliografieeinträge können einfach falls vorhanden von den jeweiligen Seiten eingefügt werden, mit dem Program Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine beiinhaltet, generiert werden oder von Hand selber hinzugefügt werden. Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit einem trennenden \texttt{and} hinzugefügt werden müssen. 
+Bibliografieeinträge können einfach falls vorhanden von der Quelle übernommen werden, mit dem Program Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine beinhaltet, generiert werden oder von Hand selber hinzugefügt werden. Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit einem trennenden \texttt{and} hinzugefügt werden müssen. 
 
 Querverweise im Text werden mit \texttt{\textbackslash label\{.\}}
-verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt.
+verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt. Verwendet wird dabei das Package \texttt{cleverref}
 Beispiel einer Referenz auf das zweite Kapitel:
 \cref{sec:latexumg}.
 
@@ -142,9 +142,9 @@ Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
    \label{pics:k_surf}
 \end{figure}
 
-Das $\lbrack hbp \rbrack$ macht, dass das Bild entweder an dieser Stelle im Layout eingebettet wird, wenn das nicht geht am Ende der Seite und wenn dies auch nicht geht, am Ende der nächsten Seite. Referenzieren der Bilder geht am besten mit \texttt{\textbackslash Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} (\cref{pics:cycle:1}).\\
+Das \texttt{[hbp]} macht, dass das Bild entweder an dieser Stelle im Layout eingebettet wird, wenn das nicht geht am Ende der Seite und wenn dies auch nicht geht, am Ende der nächsten Seite. Referenzieren der Bilder geht am besten mit \texttt{\textbackslash Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} (\cref{pics:cycle:1}).\\
 
-Zwei Bilder nebeneinander einfügen mit:
+Zwei Bilder nebeneinander einfügen mit den Packages \texttt{caption} und \texttt{subcaption}:
 
 \begin{verbatim}
 \begin{figure}[hbp]
@@ -180,7 +180,7 @@ Zwei Bilder nebeneinander einfügen mit:
   \label{pics:cycle}
 \end{figure}
 
-Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). Viele weitere Möglichkeiten findest du in der Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
+Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). Viele weitere Möglichkeiten findet man in der Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
 
 \begin{figure}[hbp]
 \begin{center}
@@ -266,7 +266,10 @@ Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} und gröss
 Hervorhebungen im Text sehen so aus: \emph{hervorgehoben}. Erzeugt
 werden sie mit dem \texttt{\textbackslash epmh\{.\}} Befehl.
 
-Einheiten werden mit den Befehlen \texttt{\textbackslash unit[1]\{m\}} (z.B.~\unit[1]{m}) und \texttt{\textbackslash unitfrac[1]\{m\}\{s\}} (z.B.~\unitfrac[1]{m}{s}) gesetzt. Alternativ kann auch bei einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: \texttt{1 \textbackslash , m} (1\,m).
+Einheiten können mit dem Package \texttt{siunitx} generiert werden und werden mit den Befehlen \texttt{\textbackslash SI\{1\}\{\textbackslash meter\}} (z.B. \SI{1}{\meter}) und \texttt{\textbackslash SI\{1\}\{\textbackslash meter \textbackslash per \textbackslash second\}} (z.B.~\SI{1}{\meter\per\second}) gesetzt. Alternativ kann auch bei einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: \texttt{1\textbackslash ,m} (1\,m).
+
+\section{Dokumentation}
+Alle verwendeten Packages haben eine Dokumentation auf CTAN.org. Falls Fragen oder Unklarheiten bestehen sollte das die beste Anlaufstelle sein. Alternativ haben auch Wikipedia sowie Overleaf ausführliche Beispiele der verwendeten Packages.
 
 \subsection{Tiefe der Gliederung}
 Dies ist ein Abschnitt auf der dritten Hierarchistufe.
