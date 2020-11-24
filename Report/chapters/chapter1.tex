@@ -5,13 +5,21 @@ Nachfolgend wird die Codierung einiger oft verwendeten Elemente
 kurz beschrieben. Das Einbinden von Bildern ist in \LaTeX\ nicht
 ganz unproblematisch und hängt auch stark vom verwendeten Compiler
 ab. Typisches Format für Bilder in \LaTeX\ ist
-EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format}.
+EPS\footnote{Encapsulated Postscript} oder 
+PDF\footnote{Portable Document Format}.
 
 \section{Basics}
 \label{sec:basics}
-Text kann durch die Befehle \texttt{\textbackslash textit} (\textit{italic}), \texttt{\textbackslash texttt}  (\texttt{typewriter}) und \texttt{\textbackslash textbf} (\textbf{bold}) formatiert werden. Zeilenumbrüche im Text werden auch im PDF übernommen. Um eine leere Zeile einzufügen muss ein Zeilenumbruch (\textbackslash \textbackslash) hinzugefügt werden.\\
+Text kann durch die Befehle \texttt{\textbackslash textit} 
+(\textit{italic}), \texttt{\textbackslash texttt}  (\texttt{typewriter}) 
+und \texttt{\textbackslash textbf} (\textbf{bold}) formatiert werden. 
+Zeilenumbrüche im Text werden auch im PDF übernommen. Um eine leere Zeile 
+einzufügen muss ein Zeilenumbruch (\textbackslash \textbackslash) 
+hinzugefügt werden.\\
 
-Um Position weiter zu beeinflussen können die Befehle für \texttt{\textbackslash vspace[Distanz]} und \texttt{\textbackslash hspace[Distanz]} benutzt werden.
+Um Position weiter zu beeinflussen können die Befehle für 
+\texttt{\textbackslash vspace[Distanz]} und \texttt{\textbackslash 
+hspace[Distanz]} benutzt werden.
 Es können auch Kommentare im Code eingefügt werden mit \texttt{\%}.
 
 \section{Gliederungen}
@@ -20,7 +28,9 @@ Es können auch Kommentare im Code eingefügt werden mit \texttt{\%}.
 Ein Text kann mit den Befehlen \texttt{\textbackslash
 chapter\{.\}}, \texttt{\textbackslash section\{.\}},
 \texttt{\textbackslash subsection\{.\}} und \texttt{\textbackslash
-subsubsection\{.\}} gegliedert werden. Weiterhin kann das ganze Dokument in verschiedene Dateien gegliedert werden, welche durch den Befehl \texttt{\textbackslash input\{.\}} eingefügt werden können.
+subsubsection\{.\}} gegliedert werden. Weiterhin kann das ganze Dokument 
+in verschiedene Dateien gegliedert werden, welche durch den Befehl 
+\texttt{\textbackslash input\{.\}} eingefügt werden können.
 
 
 \section{Referenzen und Verweise}
@@ -28,16 +38,25 @@ subsubsection\{.\}} gegliedert werden. Weiterhin kann das ganze Dokument in vers
 
 Literaturreferenzen werden mit dem Befehl \texttt{\textbackslash
 citep\{.\}} und \texttt{\textbackslash
-citet\{.\}} erzeugt. Beispiele: ein Buch \citep{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal Paper \citep{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, ein Konferenz Paper mit Erwähnung des Autors: \citet{Pratt1995SEA}.
+citet\{.\}} erzeugt. Beispiele: ein Buch 
+\citep{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal 
+Paper \citep{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, 
+ein Konferenz Paper mit Erwähnung des Autors: \citet{Pratt1995SEA}.
 
 Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
 footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
 bla.}.
 
-Bibliografieeinträge können einfach falls vorhanden von der Quelle übernommen werden, mit dem Program Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine beinhaltet, generiert werden oder von Hand selber hinzugefügt werden. Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit einem trennenden \texttt{and} hinzugefügt werden müssen. 
+Bibliografieeinträge können einfach falls vorhanden von der Quelle 
+übernommen werden, mit dem Program 
+Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine 
+beinhaltet, generiert werden oder von Hand selber hinzugefügt werden. 
+Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit 
+einem trennenden \texttt{and} hinzugefügt werden müssen. 
 
 Querverweise im Text werden mit \texttt{\textbackslash label\{.\}}
-verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt. Verwendet wird dabei das Package \texttt{cleverref}
+verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt. 
+Verwendet wird dabei das Package \texttt{cleverref}
 Beispiel einer Referenz auf das zweite Kapitel:
 \cref{sec:latexumg}.
 
@@ -142,9 +161,15 @@ Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
    \label{pics:k_surf}
 \end{figure}
 
-Das \texttt{[hbp]} macht, dass das Bild entweder an dieser Stelle im Layout eingebettet wird, wenn das nicht geht am Ende der Seite und wenn dies auch nicht geht, am Ende der nächsten Seite. Referenzieren der Bilder geht am besten mit \texttt{\textbackslash Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} (\cref{pics:cycle:1}).\\
+Das \texttt{[hbp]} macht, dass das Bild entweder an dieser Stelle 
+im Layout eingebettet wird, wenn das nicht geht am Ende der Seite 
+und wenn dies auch nicht geht, am Ende der nächsten Seite. 
+Referenzieren der Bilder geht am besten mit \texttt{\textbackslash 
+Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} 
+(\cref{pics:cycle:1}).\\
 
-Zwei Bilder nebeneinander einfügen mit den Packages \texttt{caption} und \texttt{subcaption}:
+Zwei Bilder nebeneinander einfügen mit den Packages \texttt{caption} 
+und \texttt{subcaption}:
 
 \begin{verbatim}
 \begin{figure}[hbp]
@@ -180,7 +205,10 @@ Zwei Bilder nebeneinander einfügen mit den Packages \texttt{caption} und \textt
   \label{pics:cycle}
 \end{figure}
 
-Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). Viele weitere Möglichkeiten findet man in der Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
+Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline 
+in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). 
+Viele weitere Möglichkeiten findet man in der 
+Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
 
 \begin{figure}[hbp]
 \begin{center}
@@ -236,7 +264,10 @@ Der Code dazu lautet:
 Mathematische Ausdrücke im Text werden mit \$formel\$ erzeugt (z.B.:
 $a^2+b^2=c^2$).
 
-Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} und \texttt{\textbackslash mat\{.\}} erzeugt (z.B. $\vec{v}$, $\mat{M}$). Matrizen kann man aber auch explizit in Formeln verwenden. Bsp:
+Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash 
+vec\{.\}} und \texttt{\textbackslash mat\{.\}} erzeugt 
+(z.B. $\vec{v}$, $\mat{M}$). Matrizen kann man aber auch explizit in 
+Formeln verwenden. Bsp:
 
 \begin{equation}
     \begin{bmatrix}
@@ -255,10 +286,12 @@ Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} u
     \vspace{0.5cm}
 \end{equation}
 
-Um Text, oder unformatierte Zeichen in Gleichungen eizufügen braucht man eine Textumgebung \texttt{\textbackslash text\{.\}}.
+Um Text, oder unformatierte Zeichen in Gleichungen eizufügen braucht 
+man eine Textumgebung \texttt{\textbackslash text\{.\}}.
 
-Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} und grössere mit
-\texttt{\textbackslash quad} oder \texttt{\textbackslash qquad}.
+Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} 
+und grössere mit \texttt{\textbackslash quad} oder \texttt{\textbackslash 
+qquad}.
 
 
 \section{Weitere nützliche Befehle}\label{sec:div}
@@ -266,13 +299,23 @@ Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} und gröss
 Hervorhebungen im Text sehen so aus: \emph{hervorgehoben}. Erzeugt
 werden sie mit dem \texttt{\textbackslash epmh\{.\}} Befehl.
 
-Einheiten können mit dem Package \texttt{siunitx} generiert werden und werden mit den Befehlen \texttt{\textbackslash SI\{1\}\{\textbackslash meter\}} (z.B. \SI{1}{\meter}) und \texttt{\textbackslash SI\{1\}\{\textbackslash meter \textbackslash per \textbackslash second\}} (z.B.~\SI{1}{\meter\per\second}) gesetzt. Alternativ kann auch bei einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: \texttt{1\textbackslash ,m} (1\,m).
+Einheiten können mit dem Package \texttt{siunitx} generiert werden 
+und werden mit den Befehlen \texttt{\textbackslash SI\{1\}\{\textbackslash 
+meter\}} (z.B. \SI{1}{\meter}) und \texttt{\textbackslash SI\{1\}\{\textbackslash 
+meter \textbackslash per \textbackslash second\}} 
+(z.B.~\SI{1}{\meter\per\second}) gesetzt. Alternativ kann auch bei
+ einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: 
+ \texttt{1\textbackslash ,m} (1\,m).
 
 \section{Dokumentation}
-Alle verwendeten Packages haben eine Dokumentation auf CTAN.org. Falls Fragen oder Unklarheiten bestehen sollte das die beste Anlaufstelle sein. Alternativ haben auch Wikipedia sowie Overleaf ausführliche Beispiele der verwendeten Packages.
+Alle verwendeten Packages haben eine Dokumentation auf CTAN.org. 
+Falls Fragen oder Unklarheiten bestehen sollte das die beste 
+Anlaufstelle sein. Alternativ haben auch Wikipedia sowie Overleaf 
+ausführliche Beispiele der verwendeten Packages.
 
 \subsection{Tiefe der Gliederung}
 Dies ist ein Abschnitt auf der dritten Hierarchistufe.
 
 \subsubsection{Zwischentitel}
-Dies ist ein Abschnitt auf der vierten Hierarchistufe. Diese ist unnummeriert und geht nicht ins Inhaltsverzeichnis ein.
+Dies ist ein Abschnitt auf der vierten Hierarchistufe. 
+Diese ist unnummeriert und geht nicht ins Inhaltsverzeichnis ein.

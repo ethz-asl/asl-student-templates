@@ -111,7 +111,10 @@
 
 \newif\ifstudentD
 \newcommand{\@studentD}{}
-\newcommand{\studentD}[1]{\gdef\@studentD{#1}\studentDtrue}
+\newcommand{\studentD}[1]{
+    \gdef\@studentD{#1}\studentDtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
 
 \newif\ifstudentE
 \newcommand{\@studentE}{}

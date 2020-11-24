@@ -1,278 +1,236 @@
-\chapter{Einige wichtige Hinweise zum Arbeiten mit \LaTeX\ }
-\label{sec:latexumg}
+\chapter{Richtiges technisches~Schreiben}
+\label{sec:technischesSchreiben}
 
-Nachfolgend wird die Codierung einiger oft verwendeten Elemente
-kurz beschrieben. Das Einbinden von Bildern ist in \LaTeX\ nicht
-ganz unproblematisch und hängt auch stark vom verwendeten Compiler
-ab. Typisches Format für Bilder in \LaTeX\ ist
-EPS\footnote{Encapsulated Postscript} oder PDF\footnote{Portable Document Format}.
+DIN 5008, Schreib- und Gestaltungsregeln für die Textverarbeitung, DIN 1333, 
+Zahlenangaben, und ISO 80000 bzw. IEC 80000 in dreizehn Teilen regeln die 
+Schreibweise von Masszahlen und Masseinheiten, Währungen, Abkürzungen, 
+Zwischenräumen und Satzzeichen -- im Deutschen und im Englischen. 
+In der Typografie nennt man dieses Feld „Mikro\-typografie“. \\
 
-\section{Basics}
-\label{sec:basics}
-Text kann durch die Befehle \texttt{\textbackslash textit} (\textit{italic}), \texttt{\textbackslash texttt}  (\texttt{typewriter}) und \texttt{\textbackslash textbf} (\textbf{bold}) formatiert werden. Zeilenumbrüche im Text werden auch im PDF übernommen. Um eine leere Zeile einzufügen muss ein Zeilenumbruch (\textbackslash \textbackslash) hinzugefügt werden.\\
-
-Um Position weiter zu beeinflussen können die Befehle für \texttt{\textbackslash vspace[Distanz]} und \texttt{\textbackslash hspace[Distanz]} benutzt werden.
-Es können auch Kommentare im Code eingefügt werden mit \texttt{\%}.
-
-\section{Gliederungen}
-\label{sec:gliederung}
-
-Ein Text kann mit den Befehlen \texttt{\textbackslash
-chapter\{.\}}, \texttt{\textbackslash section\{.\}},
-\texttt{\textbackslash subsection\{.\}} und \texttt{\textbackslash
-subsubsection\{.\}} gegliedert werden. Weiterhin kann das ganze Dokument in verschiedene Dateien gegliedert werden, welche durch den Befehl \texttt{\textbackslash input\{.\}} eingefügt werden können.
-
-
-\section{Referenzen und Verweise}
-\label{sec:refverw}
-
-Literaturreferenzen werden mit dem Befehl \texttt{\textbackslash
-citep\{.\}} und \texttt{\textbackslash
-citet\{.\}} erzeugt. Beispiele: ein Buch \citep{Raibert1986LeggedRobotsThatBalance}, ein Buch und ein Journal Paper \citep{Raibert1986LeggedRobotsThatBalance,Vukobratovic2004ZeroMomentPoint}, ein Konferenz Paper mit Erwähnung des Autors: \citet{Pratt1995SEA}.
-
-Zur Erzeugung von Fussnoten wird der Befehl \texttt{\textbackslash
-footnote\{.\}} verwendet. Auch hier ein Beispiel\footnote{Bla
-bla.}.
-
-Bibliografieeinträge können einfach falls vorhanden von der Quelle übernommen werden, mit dem Program Jabref\footnote{https://www.jabref.org}, welches auch eine Suchmaschine beinhaltet, generiert werden oder von Hand selber hinzugefügt werden. Dabei ist auf die Aufzählung der Autoren zu achten, welche immer mit einem trennenden \texttt{and} hinzugefügt werden müssen. 
-
-Querverweise im Text werden mit \texttt{\textbackslash label\{.\}}
-verankert und mit \texttt{\textbackslash cref\{.\}} erzeugt. Verwendet wird dabei das Package \texttt{cleverref}
-Beispiel einer Referenz auf das zweite Kapitel:
-\cref{sec:latexumg}.
-
-
-\section{Aufzählungen}\label{sec:aufz}
-
-Folgendes Beispiel einer Aufzählung ohne Numerierung,
-\begin{itemize}
-  \item Punkt 1
-  \item Punkt 2
-\end{itemize}
-wurde erzeugt mit:
-\begin{verbatim}
-\begin{itemize}
-  \item Punkt 1
-  \item Punkt 2
-\end{itemize}
-\end{verbatim}
-
-Folgendes Beispiel einer Aufzählung mit Numerierung,
-\begin{enumerate}
-  \item Punkt 1
-  \item Punkt 2
-\end{enumerate}
-wurde erzeugt mit:
-\begin{verbatim}
-\begin{enumerate}
-  \item Punkt 1
-  \item Punkt 2
-\end{enumerate}
-\end{verbatim}
-
-Folgendes Beispiel einer Auflistung,
+Nützliche Online-Referenzen sind:
 \begin{description}
-  \item[P1] Punkt 1
-  \item[P2] Punkt 2
+  \item[--] \href{https://din-5008-richtlinien.de}{Online Referenz zu DIN 5008}
+  \item[--] \href{https://de.wikipedia.org/wiki/Schreibweise_von_Zahlen}{Wikipedia: Schreibweise von Zahlen}
+  \item[--] \href{https://de.wikibooks.org/wiki/LaTeX-Kompendium:_Sonderzeichen}{LaTeX-Kompendium: Sonderzeichen}
 \end{description}
-wurde erzeugt mit:
-\begin{verbatim}
+
+\section{Unterschied: Trenn-, Binde-, Gedankenstrich}
+
+\subsection{Trennstrich}
+
+Trennstriche dienen im Deutschen und Englischen der Wortrennung (Textumbruch).
+Sie werden von jedem Text\-verarbeitungsprogramm automatisch erzeugt, sobald die 
+Silbentrennung aktiv ist.
+
+\subsection{Bindestrich} 
+
+Bindestriche werden verwendet für Worverbindungen speziell mit
+Fremdwortkomponente. Beispiele:
 \begin{description}
-  \item[P1] Punkt 1
-  \item[P2] Punkt 2
+  \item[--] Mehrzweck-Maschine
+  \item[--] Shopping-Center
+  \item[--] (engl.) state-of-the-art
+  \item[--] (engl.) seven-year-old
 \end{description}
-\end{verbatim}
 
+\subsection{Gedankenstrich, Halbgeviertstrich} 
 
-\section{Erstellen einer Tabelle}\label{sec:tabellen}
+Ein Gedankenstrich unterbricht die Syntax: „Plötzlich -- 
+ein gellender Aufschrei!“, „Das Bild -- sein bekanntestes -- 
+wurde verkauft.“ \\
 
-Ein Beispiel einer Tabelle (siehe \Cref{tab:tabnefz}).
-\begin{table}[ht]
-\begin{center}
- \caption{Daten der Fahrzyklen ECE, EUDC, NEFZ.}\vspace{1ex}
- \label{tab:tabnefz}
- \begin{tabular}{ll|ccc}
- \hline
- Kennzahl & Einheit & ECE & EUDC & NEFZ \\ \hline \hline
- Dauer & s & 780 & 400 & 1180 \\
- Distanz & km & 4.052 & 6.955 & 11.007 \\
- Durchschnittsgeschwindigkeit & km/h & 18.7 &  62.6 & 33.6 \\
- Leerlaufanteil & \% & 36 & 10 & 27 \\
- \hline
- \end{tabular}
-\end{center}
-\end{table}
+Der Gedankenstrich ist länger als der  Trenn- und Bindestrich. 
+Typografisch heisst der längere dieser Striche „Halbgeviertstrich“. 
+Der Halbgeviertstrich wird über die Tastatur als Sonderzeichen eingegeben 
+(Mac: option + -, Win: Strg + Alt + -). In LaTeX wird der 
+Halbgeviertstrich durch zwei aufeinander folgende Bindestriche erzeugt
 
-Die Tabelle wurde erzeugt mit:
+\subsection{Geviertstrich} 
+
+Der Geviertstrich wird im Englischen als Gedankenstrich verwendet. 
+Beispiel: „My son---the teacher---would like to meet you.“ 
+In LaTeX wird der Geviertstrich durch drei aufeinander folgende 
+Bindestriche erzeugt.
+
+\subsection{Bis oder gegen: ein kleiner aber wichtiger Unterschied}
+
+Der Halbgeviertstrich wird auch als Minuszeichen und als Abkürzung für 
+„bis“ und „gegen“ verwendet. Der Unterschied liegt bei den Leerzeichen: 
+\hfill \break
+16–18 Uhr (bis, ohne Leerzeichen), aber: FC Zürich – GC 
+(gegen, mit Leerzeichen) \\
+
+Zur Vertiefung: 
+\begin{description}
+  \item[--] \href{https://typefacts.com/artikel/binde-und-gedankenstrich}{Typefacts.com} 
+  \item[--] \href{https://de.wikihow.com/Gedankenstrich-und-Bindestrich-in-der-englischen-Sprache}{Wikihow: Gedankenstrich und Bindestrich in der englischen Sprache}
+\end{description}
+
+\subsection{Schrägstrich („Slash“)}
+
+Mitarbeiter/-innen (im Englischen und Deutschen ohne Leerzeichen)
+
+\section{Schreibweise von Zahlen}
+
+Ein- und zweisilbige Zahlen im Lauftext werden ausgeschrieben -- 
+aber nie im Zusammenhang mit einem Mass. Beispiel: „Er ist dreizehn 
+Jährig und immer noch 1\,m gross.“
+
+\subsection{Gliederung von Zahlen}
+
+Grundsätzlich gilt:
+\begin{description}
+  \item[--] CH/D: Dreierblöcke (aber nicht bei vier Stellen): 43\,300\,000, aber 4000
+  \item[--] UK/USA: 43,300,000 und 4,000
+\end{description}
+
+\subsection{Trennung von Vor- und Nachkommastellen}
+
+Je nach Sprache und Land werden Vor- und Nachkommastellen mit Punkt 
+oder Komma getrennt: 
+\begin{description}
+  \item[--] CH: Trennung mit Punkt oder Komma: 4.3 oder 4,3
+  \item[--] D: Trennung mit Komma: 4,3
+  \item[--] UK/USA: Trennung mit Punkt (Komma ist für Gliederung reserviert)
+\end{description}
+
+\subsection{Gliederung von Nachkommastellen}
+–43\,300.060\,395, –43\,300.0603, –43\,300.060\,39
+
+\subsection{Negative Zahlen}
+
+Das Minuszeichen ist ein Geviert- und kein Trennungsstrich 
+(siehe auch weiter unten).
+Zwischen Minuszeichen und Zahl steht kein Leerzeichen:
+\begin{description}
+ \item[--] richtig: –4
+ \item[--] falsch: -4
+ \item[--] falsch: – 4
+\end{description}
+
+\subsection{Zwei typografische Anforderungen an Leerzeichen}
+
+Gliedernde Leerzeichen zwischen Zahlenblöcken, Mass und Einheit und in
+Abkürzungen müssen umbruchgeschützt sein und sind schöner anzusehen, wenn
+sie schmal sind. \\
+
+Zum Vergleich:
+\begin{description}
+  \item[--] 123 456 N/cm\textsuperscript{2} (mit Leerzeichen)
+  \item[--] 123\,456 N/cm\textsuperscript{2} (mit halbem Leerschlag: 
+  schöner und umbruchgeschützt)
+\end{description}
+
+Das umbruchgeschützte schmale Leerzeichen wird in LaTeX wie folgt erzeugt: 
+\begin{verbatim}13,7\,m\end{verbatim}
+
+Ein umbruchgeschütztes Leerzeichen, das man auch zur Steuerung der Silbentrennung
+einsetzen kann wird mit einem Tilde eingegeben:
+\begin{verbatim}Prof.~Dr.~R.~Siegwart\end{verbatim}
+
+\section{Masszahlen}
+
+Zwischen Zahl und Mass steht das umbruchgeschützte halbe Leerzeichen. Ausnahmen 
+sind Winkelmasse: 37° (hingegen regelkonsistent: 37 °C) und Prozentangaben im 
+Englischen: 0,37\% (im Deutschen allerdings mit Leerschlag: 0,37\,\%). \\
+
+Für LaTeX gibt es ein Paket siunitx, mit dem sich SI-Einheiten wie folgt 
+darstellen lassen:
 \begin{verbatim}
-\begin{table}[ht]
-\begin{center}
- \caption{Daten der Fahrzyklen ECE, EUDC, NEFZ.}\vspace{1ex}
- \label{tab:tabnefz}
- \begin{tabular}{ll|ccc}
- \hline
- Kennzahl & Einheit & ECE & EUDC & NEFZ \\ \hline \hline
- Dauer & s & 780 & 400 & 1180 \\
- Distanz & km & 4.052 & 6.955 & 11.007 \\
- Durchschnittsgeschwindigkeit & km/h & 18.7 &  62.6 & 33.6 \\
- Leerlaufanteil & \% & 36 & 10 & 27 \\
- \hline
- \end{tabular}
-\end{center}
-\end{table}
+\si{kg.m/s^2} 
 \end{verbatim}
 
+Das ergibt: kg\,m/s2 \\
 
-\section{Einbinden einer Grafik}\label{sec:epsgraph}
+Download und Installationshinweise:
+\begin{description}
+\item[--] \href{https://ctan.org/pkg/siunitx?lang=de}{siunitx Download}
+\item[--] \href{https://mirror.kumi.systems/ctan/macros/latex/contrib/siunitx/siunitx.pdf}{Dokumentation: siunitx}
+\end{description}
 
-Das Einbinden von Graphiken kann wie folgt bewerkstelligt werden:
+\section{Währungen}
+\subsection{Abkürzungen und Währungssymbole}
+
+Der Franken kann wie folgt abgekürzt werden: Fr., sFr. (beide mit Punkt), 
+sfr oder CHF (beide ohne Punkt). \\
+
+Für Euro und Dollar gibt es Sonderzeichen: €555 oder \$555. \\
+
+In LaTeX geben Sie das Euro-Zeichen mit der Tastatur ein und das Dollar-Zeichen 
+mit Backslash und \$.
+
+\subsection{Stellung}
+Die Währungseinheit kann vor oder nach der Zahl stehen. Der Duden-Newsletter sagt: 
+„In Fließtexten ist zwar die letztgenannte Variante zu empfehlen (250 EUR), 
+da diese Schreibweise dem Lesefluss entspricht, ansonsten bleibt die Entscheidung 
+Ihnen überlassen.“
+
+\subsection{Euro,Cent – Franken.Rappen}
+
+Euro und Cent werden mit Komma getrennt, Franken und Rappen mit Punkt: \hfill \break
+19,90\,€ bzw. 19.90\,sFr. \\
+
+Richtig (deutscher Text) sind zum Beispiel:
+\begin{description}
+  \item[--] 400 Franken
+  \item[--] 400\,Fr. 
+  \item[--] 400\,sFr.
+  \item[--] 400\,sfr 
+  \item[--] 400\,CHF
+  \item[--] Fr.\,400
+  \item[--] sFR.\,400 
+  \item[--] sfr\,400
+  \item[--] CHF\,400 
+  \item[--] €\,59,–
+  \item[--] 59\,€
+\end{description}
+
+
+Falsch (deutscher Text) sind zum Beispiel:
+\begin{description}
+  \item[--] Vierhundert Fr. (wird nicht ausgeschrieben -- wie bei Masszahlen)
+  \item[--] 307.30 Euro (Euro,Cent wäre richtig)
+  \item[--] sFr\,307.30 (Punkt fehlt nach sFr)
+\end{description}
+
+Richtig im Englischen sind:
+\begin{description}
+  \item[--] US\$50
+  \item[--] US\$50.35
+  \item[--] €4.50
+\end{description}
+
+\section{Anführungszeichen}
+
+Richtige Anführungszeichen sind:
+\begin{description}
+  \item[--] im Deutschen: Herbert sagt: „Hallo!“ (99-66, unten-oben)
+  \item[--] im Englischen: Herbert says: ``Hello!'' (66-99, oben-oben)
+\end{description}
+
+In LaTeX geben Sie die englischen Zeichen wie folgt ein:
 \begin{verbatim}
-\begin{figure}[hbp]
-   \centering
-   \includegraphics[width=0.75\textwidth]{images/k_surf.pdf}
-   \caption{Ein Bild.}
-   \label{fig:k_surf}
-\end{figure}
+``Text'' und `Text'
 \end{verbatim}
 
-\begin{figure}[hbp]
-   \centering
-   \includegraphics[width=0.75\textwidth]{images/k_surf.pdf}
-   \caption{Ein Bild}
-   \label{pics:k_surf}
-\end{figure}
-
-Das \texttt{[hbp]} macht, dass das Bild entweder an dieser Stelle im Layout eingebettet wird, wenn das nicht geht am Ende der Seite und wenn dies auch nicht geht, am Ende der nächsten Seite. Referenzieren der Bilder geht am besten mit \texttt{\textbackslash Cref\{.\}} (\Cref{pics:cycle:1}) oder \texttt{\textbackslash cref\{.\}} (\cref{pics:cycle:1}).\\
-
-Zwei Bilder nebeneinander einfügen mit den Packages \texttt{caption} und \texttt{subcaption}:
-
+Die deutschen Zeichen hingegen geben Sie via Tastatur ein oder wie folgt 
+(Voraussetzung ist, das Babel eingebunden ist):
 \begin{verbatim}
-\begin{figure}[hbp]
-  \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width = \textwidth]{images/cycle_we.pdf}
-    \caption{Bild 1}
-    \label{pics:cycle:1}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width = \textwidth]{images/cycle_ml.pdf}
-    \caption{Bild 2}
-    \label{pics:cycle:2}
-  \end{subfigure}
-  \caption{Zwei Bilder nebeneinander}
-  \label{pics:cycle}
-\end{figure}
+\usepackage[ngerman]{babel}
+
+"`Text"' oder \glqq Text\grqq
 \end{verbatim}
 
-\begin{figure}[hbp]
-  \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width = \textwidth]{images/cycle_we.pdf}
-    \caption{Bild 1}
-    \label{pics:cycle:1}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
-    \includegraphics[width = \textwidth]{images/cycle_ml.pdf}
-    \caption{Bild 2}
-    \label{pics:cycle:2}
-  \end{subfigure}
-  \caption{Zwei Bilder nebeneinander}
-  \label{pics:cycle}
-\end{figure}
-
-Tikz ist kein Zeichnungsprogramm, aber ein praktisches Tool um inline in Latex Dokumenten Vektorgrafiken zu erstellen (see \Cref{fig:loop}). Viele weitere Möglichkeiten findet man in der Dokumentation\footnote{https://mirror.kumi.systems/ctan/graphics/pgf/base/doc/pgfmanual.pdf}.
-
-\begin{figure}[hbp]
-\begin{center}
-\begin{tikzpicture}[auto, node distance=3cm]
-    \tikzstyle{block} = [draw, fill=white, rectangle, 
-    minimum height=3em, minimum width=6em]
-    \tikzstyle{sum} = [draw, fill=white, circle, node distance=1cm]
-    \tikzstyle{input} = [coordinate]
-    \tikzstyle{output} = [coordinate]
-    \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
-    \node [input, name=input]{};
-    \node[sum, right of=input, node distance=2cm](sum){};
-    \node [block, right of=sum](controller){PID controller};
-    \node [block, right of=controller, node distance=4cm](system){Actuator};
-    \draw [->] (controller) -- node[name=u]{PWM}(system);
-    \node [output, right of=system, node distance=3cm](output) {};
-    \node [block, below of=u](measurements){Sensor};
-    \draw [draw,->] (input) -- node [align=center]{reference}(sum);
-    \draw [->] (sum) -- node {error}(controller);
-    \draw [->] (system) -- node [name=y]{length}(output);
-    \draw [->] (y) |- (measurements);
-    \draw [->] (measurements) -| node[pos=0.99] {$-$} 
-        node [near end, align=center]{measured}(sum);
-\end{tikzpicture}
-\caption{Ein Beispiel von Tikz} \label{fig:loop}
-
-\end{center}
-\end{figure}
-
-
-
-
-
-
-\section{Mathematische Formeln}\label{sec:math}
-
-Einfache mathematische Formeln werden mit der equation-Umgebung
-erzeugt:
-\begin{equation}
- p_{me0f}(T_e,\omega_e) \ = \ k_1(T_e) \cdot (k_2+k_3 S^2
- \omega_e^2) \cdot \Pi_{\mathrm{max}} \cdot \sqrt{\frac{k_4}{B}} \quad [\text{bar}] .
- 	\label{eq:my_equation}
-\end{equation}
-
-Der Code dazu lautet:
+Die Befehle für die äusseren und inneren Anführungszeichen im Deutschen lauten:
 \begin{verbatim}
-\begin{equation}
- p_{me0f}(T_e,\omega_e) \ = \ k_1(T_e) \cdot (k_2+k_3 S^2
- \omega_e^2) \cdot \Pi_{max} \cdot \sqrt{\frac{k_4}{B}} \quad [\text{bar}] .
-\end{equation}
+Er sagte: \glqq Das Buch heisst: \glq Einführung in das 
+technische Schreiben\grq.\grqq (äussere, doppelte und 
+innere, einfache Anführungszeichen.
 \end{verbatim}
 
-Mathematische Ausdrücke im Text werden mit \$formel\$ erzeugt (z.B.:
-$a^2+b^2=c^2$).
+\section{Apostroph}
 
-Vektoren und Matrizen werden mit den Befehlen \texttt{\textbackslash vec\{.\}} und \texttt{\textbackslash mat\{.\}} erzeugt (z.B. $\vec{v}$, $\mat{M}$). Matrizen kann man aber auch explizit in Formeln verwenden. Bsp:
-
-\begin{equation}
-    \begin{bmatrix}
-    1 & 2 \\
-    3 & 4 
-    \end{bmatrix}
-    \begin{bmatrix}
-    1 \\
-    1
-    \end{bmatrix}
-    = 
-    \begin{bmatrix}
-    3 \\
-    7
-    \end{bmatrix}
-    \vspace{0.5cm}
-\end{equation}
-
-Um Text, oder unformatierte Zeichen in Gleichungen eizufügen braucht man eine Textumgebung \texttt{\textbackslash text\{.\}}.
-
-Leerzeichen in Gleichungen erhält man durch \texttt{\textbackslash,} und grössere mit
-\texttt{\textbackslash quad} oder \texttt{\textbackslash qquad}.
-
-
-\section{Weitere nützliche Befehle}\label{sec:div}
-
-Hervorhebungen im Text sehen so aus: \emph{hervorgehoben}. Erzeugt
-werden sie mit dem \texttt{\textbackslash epmh\{.\}} Befehl.
-
-Einheiten können mit dem Package \texttt{siunitx} generiert werden und werden mit den Befehlen \texttt{\textbackslash SI\{1\}\{\textbackslash meter\}} (z.B. \SI{1}{\meter}) und \texttt{\textbackslash SI\{1\}\{\textbackslash meter \textbackslash per \textbackslash second\}} (z.B.~\SI{1}{\meter\per\second}) gesetzt. Alternativ kann auch bei einfachen Einheiten ein Umbruchgeschütztes Leerzeichen verwendet werden: \texttt{1\textbackslash ,m} (1\,m).
-
-\section{Dokumentation}
-Alle verwendeten Packages haben eine Dokumentation auf CTAN.org. Falls Fragen oder Unklarheiten bestehen sollte das die beste Anlaufstelle sein. Alternativ haben auch Wikipedia sowie Overleaf ausführliche Beispiele der verwendeten Packages.
-
-\subsection{Tiefe der Gliederung}
-Dies ist ein Abschnitt auf der dritten Hierarchistufe.
-
-\subsubsection{Zwischentitel}
-Dies ist ein Abschnitt auf der vierten Hierarchistufe. Diese ist unnummeriert und geht nicht ins Inhaltsverzeichnis ein.
+Der Apostroph ist nicht das gerade Fusszeichen – LaTeX macht aber aus der 
+Tastatur\-eingabe für „foot“ automatisch einen richtigen Apostroph 
+(Kringel in der Form einer neun, oben). \hfill \break
+Beispiel: „Das war 'ne Katastrophe!“
