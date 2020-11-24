@@ -213,9 +213,9 @@
 	\fi
 \fi
 
-% the more authors/supervisors the smaller the vspace (18cm–20cm)
-% Should be automatically adjusted otherwise you can make some adjustments here:
-% \addtolength{\spaceforauthors}{1cm}
+% the more authors/supervisors the smaller the vspace
+% Should be automatically adjusted otherwise make some adjustments here:
+% \addtolength{\spaceforauthors}{-0.8cm}
 \vspace{\spaceforauthors}
 
 % line
@@ -247,7 +247,7 @@
 	\@supervisionA & & \@studentA \\
 	\if \@supervisionB \else \@supervisionB\fi & & \if \@studentB \else \@studentB\fi \\
 	\if \@supervisionC \else \@supervisionC\fi & & \if \@studentC \else \@studentC\fi \\
-     & & \if \@studentD \else \@studentD\fi \\
+	\if \@supervisionD \else \@supervisionD\fi & & \if \@studentD \else \@studentD\fi \\
 	 & & \if \@studentE \else \@studentE\fi \\
 	 & & \if \@studentF \else \@studentF\fi \\
 	 & & \if \@studentG \else \@studentG\fi \\
