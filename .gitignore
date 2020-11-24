@@ -34,3 +34,4 @@
 Report/build
 Report/report.pdf
 .DS_Store
+*.fls
