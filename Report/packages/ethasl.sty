@@ -10,43 +10,47 @@
 \typeout{providing new style definitions and commands ---}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Colors
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{color}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \newif\ifsom
 \newif\ifbt
 \newif\ifst
 \newif\ifmt
+\newif\iffp
 \DeclareOption{som}{
     \global\somtrue
     \global\btfalse
     \global\stfalse
     \global\mtfalse
+    \global\fpfalse
 }
 \DeclareOption{bt}{
     \global\somfalse
     \global\bttrue
     \global\stfalse
     \global\mtfalse
+    \global\fpfalse
 }
 \DeclareOption{st}{
     \global\somfalse
     \global\btfalse
     \global\sttrue
     \global\mtfalse
+    \global\fpfalse
 }
 \DeclareOption{mt}{
     \global\mtfalse
     \global\btfalse
     \global\stfalse
     \global\mttrue
+    \global\fpfalse
+}
+\DeclareOption{fp}{
+    \global\mtfalse
+    \global\btfalse
+    \global\stfalse
+    \global\mtfalse
+    \global\fptrue
 }
 
 \newif\ifhs
@@ -67,6 +71,15 @@
 \newcommand{\@projectYear}{}
 \newcommand{\projectYear}[1]{\gdef\@projectYear{#1}}
 
+\newcommand{\@institutelogo}{}
+\newcommand{\institutelogo}[1]{\gdef\@institutelogo{#1}}
+
+\newcommand{\@institute}{}
+\newcommand{\institute}[1]{\gdef\@institute{#1}}
+
+\newcommand{\@headofinstitute}{}
+\newcommand{\headofinstitute}[1]{\gdef\@headofinstitute{#1}}
+
 \newcommand{\@supervisionA}{}
 \newcommand{\supervisionA}[1]{\gdef\@supervisionA{#1}}
 
@@ -77,6 +90,13 @@
 \newif\ifsupervisionC
 \newcommand{\@supervisionC}{}
 \newcommand{\supervisionC}[1]{\gdef\@supervisionC{#1}\supervisionCtrue}
+
+\newif\ifsupervisionD
+\newcommand{\@supervisionD}{}
+\newcommand{\supervisionD}[1]{\gdef\@supervisionD{#1}\supervisionDtrue}
+
+\newlength{\spaceforauthors}
+\setlength{\spaceforauthors}{22cm}
 
 \newcommand{\@studentA}{}
 \newcommand{\studentA}[1]{\gdef\@studentA{#1}}
@@ -89,6 +109,49 @@
 \newcommand{\@studentC}{}
 \newcommand{\studentC}[1]{\gdef\@studentC{#1}\studentCtrue}
 
+\newif\ifstudentD
+\newcommand{\@studentD}{}
+\newcommand{\studentD}[1]{
+    \gdef\@studentD{#1}\studentDtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
+
+\newif\ifstudentE
+\newcommand{\@studentE}{}
+\newcommand{\studentE}[1]{
+    \gdef\@studentE{#1}\studentEtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
+
+\newif\ifstudentF
+\newcommand{\@studentF}{}
+\newcommand{\studentF}[1]{
+    \gdef\@studentF{#1}\studentFtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
+
+\newif\ifstudentG
+\newcommand{\@studentG}{}
+\newcommand{\studentG}[1]{
+    \gdef\@studentG{#1}\studentGtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
+
+\newif\ifstudentH
+\newcommand{\@studentH}{}
+\newcommand{\studentH}[1]{
+    \gdef\@studentH{#1}\studentHtrue
+    \addtolength{\spaceforauthors}{-\baselineskip}
+}
+
+\newif\iftitleimage
+\newcommand{\@titleimage}{}
+\newcommand{\titleimage}[2][1]{
+    \gdef\@titleimage{#2}
+    \newlength{\titleimagesize}
+    \setlength{\titleimagesize}{{#1}\textwidth}
+    \titleimagetrue
+}
 
 %%%%%%%
 % Definition of title page
@@ -107,8 +170,7 @@
 
 \hspace*{-3.5cm}
 \begin{tabular}{lp{6cm}c}
-\multirow{3}{8cm}{\includegraphics[height=1.5cm]{images/eth_logo.pdf}} & & \multirow{3}{4cm}{\vspace{-1cm}\begin{flushright}\includegraphics[height=1cm]{images/asl_logo.pdf}\\Autonomous Systems Lab\\
- Prof. Roland Siegwart\end{flushright}}\\
+\multirow{3}{8cm}{\includegraphics[height=1.5cm]{images/eth_logo.pdf}} & & \multirow{3}{4cm}{\vspace{-1cm}\begin{flushright}\includegraphics[height=1cm]{\@institutelogo}\\ \@institute \\ \@headofinstitute \end{flushright}}\\
  & & \\
  & & \\
  & & \\
@@ -133,6 +195,9 @@
 	\ifmt
 		{\huge  Masterarbeit}\\[3ex]
 	\fi
+	\iffp
+		{\huge  Fokus Projekt}\\[3ex]
+	\fi
 \else
 	\ifsom
  		{\huge  Studies on Mechatronics}\\[3ex]
@@ -146,9 +211,15 @@
 	\ifmt
 		{\huge  Master Thesis}\\[3ex]
 	\fi
+	\iffp
+		{\huge  Focus-project}\\[3ex]
+	\fi
 \fi
 
-\vspace{22cm}
+% the more authors/supervisors the smaller the vspace
+% Should be automatically adjusted otherwise make some adjustments here:
+% \addtolength{\spaceforauthors}{-0.8cm}
+\vspace{\spaceforauthors}
 
 % line
 \hspace*{-124pt}
@@ -178,11 +249,17 @@
 	\fi \\
 	\@supervisionA & & \@studentA \\
 	\if \@supervisionB \else \@supervisionB\fi & & \if \@studentB \else \@studentB\fi \\
-	\if \@supervisionC \else \@supervisionC\fi & & \if \@studentC \else \@studentC\fi
+	\if \@supervisionC \else \@supervisionC\fi & & \if \@studentC \else \@studentC\fi \\
+	\if \@supervisionD \else \@supervisionD\fi & & \if \@studentD \else \@studentD\fi \\
+	 & & \if \@studentE \else \@studentE\fi \\
+	 & & \if \@studentF \else \@studentF\fi \\
+	 & & \if \@studentG \else \@studentG\fi \\
+	 & & \if \@studentH \else \@studentH\fi \\
+
 \end{tabular}
 
 % title	
-\vspace{-18cm}	
+\vspace{-20cm}	
 {\Huge \bf \@title \par}
 
 % subtitle
@@ -208,10 +285,25 @@
 	\fi
 \fi
 
+\iftitleimage
+\vspace{0.5cm}
+    \centering
+    \includegraphics[width=\titleimagesize]{\@titleimage}
+\fi
+
 \end{center}
 }
 \end{center}
 
 \cleardoublepage
 
+\iffp
+    \input{chapters/declaration}
+\else
+    \ifingerman
+    \includepdf[pagecommand={}]{chapters/plagiat-eigenstaendigkeitserklaerung.pdf}   
+    \else
+    \includepdf[pagecommand={}]{chapters/declaration-originality.pdf}
+    \fi
+\fi
 }
